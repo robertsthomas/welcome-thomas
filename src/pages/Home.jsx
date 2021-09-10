@@ -26,8 +26,8 @@ const benefitList = [
 ];
 
 function Home() {
-  const [offerId, setOfferId] = useState();
-  const [selectedOffer, setSelecctedOffer] = useState();
+  const [offerId, setOfferId] = useState(null);
+  const [selectedOffer, setSelecctedOffer] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [isShown, setIsShown] = useState(false);
   const [benefits, setBenefits] = useState(benefitList);
@@ -74,6 +74,12 @@ function Home() {
     swipeEl.next();
   };
 
+  const goToHome = () => {
+    swipeEl.slide(0);
+    setOfferId(null)
+    setSelecctedOffer(null)
+  };
+
   return (
     <Pane
       className="outter"
@@ -92,7 +98,7 @@ function Home() {
         borderTopRightRadius={8}
         position="relative"
       >
-        <Nav />
+        <Nav goToHome={goToHome} />
         {isLoading ? (
           <Pane
             display="flex"
@@ -138,9 +144,7 @@ function Home() {
                   />
                 </div>
                 <div>
-                  <Offered
-                    selectedOffer={selectedOffer}
-                  />
+                  <Offered selectedOffer={selectedOffer} />
                 </div>
               </ReactSwipe>
             </Pane>

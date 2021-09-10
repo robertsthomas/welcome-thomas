@@ -31,7 +31,7 @@ const Offer = ({ selectedOffer, setIsShown, benefits, finishOffer }) => {
           <Pane marginTop={80} width="50%">
             <Text fontSize={18}>
               Confirm your offer information and continue with extending an
-              offer to {currentOffer.fullName}.
+              offer to <b>{currentOffer.fullName}</b>.
             </Text>
             <Pane
               marginTop={40}

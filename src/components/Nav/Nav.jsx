@@ -7,9 +7,10 @@ import {
   Position,
   MenuIcon,
   Pill,
+  HomeIcon,
 } from "evergreen-ui";
 
-const Nav = () => {
+const Nav = ({ goToHome }) => {
   return (
     <Pane
       alignItems="center"
@@ -23,24 +24,30 @@ const Nav = () => {
       paddingX={20}
     >
       <Heading is="h1" color="white">
+        <HomeIcon
+          size={15}
+          marginRight={10}
+          style={{ cursor: "pointer" }}
+          onClick={() => goToHome()}
+        />
         Welcome, Thomas
       </Heading>
       <Popover
         position={Position.BOTTOM_RIGHT}
         content={
           <div data-testid="menu">
-          <Menu>
-            <Menu.Group>
-              <Menu.Item>
-                Offers
-                <Pill display="inline-flex" margin={8} color="green">
-                  3
-                </Pill>
-              </Menu.Item>
-              <Menu.Item>Settings</Menu.Item>
-              <Menu.Item>Logout</Menu.Item>
-            </Menu.Group>
-          </Menu>
+            <Menu>
+              <Menu.Group>
+                <Menu.Item>
+                  Offers
+                  <Pill display="inline-flex" margin={8} color="green">
+                    3
+                  </Pill>
+                </Menu.Item>
+                <Menu.Item>Settings</Menu.Item>
+                <Menu.Item>Logout</Menu.Item>
+              </Menu.Group>
+            </Menu>
           </div>
         }
       >
