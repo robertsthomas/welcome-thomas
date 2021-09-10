@@ -9,14 +9,15 @@ const Login = ({ setLoginType }) => {
   return (
     <div
       style={{
+          backgroundColor: 'whitesmoke',
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
         height: "100vh",
       }}
     >
-      <Pane height={500} background="gray300" width={300} borderRadius={14}>
-        <Heading fontWeight={300} size={800} textAlign="center" marginTop={20}>
+      <Pane height={500} background="red700" width={300} borderRadius={14}>
+        <Heading color="white" size={900} textAlign="center" marginTop={20}>
           Welcome
         </Heading>
 
@@ -29,13 +30,24 @@ const Login = ({ setLoginType }) => {
           marginTop="50%"
         >
           <Button
+            size="large"
+            color="black"
+            appearance="none"
+            backgroundColor="papayawhip"
             onClick={() => pickLogin("employee")}
-            marginBottom={20}
+            marginBottom={50}
             width={200}
           >
             Employee Signin
           </Button>
-          <Button onClick={() => pickLogin("hr")} width={200}>
+          <Button
+            size="large"
+            color="black"
+            appearance="none"
+            backgroundColor="papayawhip"
+            onClick={() => pickLogin("hr")}
+            width={200}
+          >
             HR Signin
           </Button>
         </Pane>
