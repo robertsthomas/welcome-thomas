@@ -11,12 +11,21 @@ import {
   SmallPlusIcon,
   SmallTickIcon,
 } from "evergreen-ui";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { formatter } from "../utils";
 
 const Offer = ({ selectedOffer, setIsShown, benefits, finishOffer }) => {
   const currentOffer = selectedOffer && selectedOffer[0];
-  const [editField, setEditField] = useState(true);
+  const [offerAmount, setOfferAmount] = useState(null);
+  const [editField, setEditField] = useState(false);
+
+  useEffect(() => {
+    setOfferAmount(formatter.format(currentOffer?.salary));
+  }, [currentOffer]);
+
+  const onEditFinished = () => {
+    setEditField((prevState) => !prevState);
+  };
 
   return (
     <Pane
@@ -43,14 +52,15 @@ const Offer = ({ selectedOffer, setIsShown, benefits, finishOffer }) => {
                 <span style={{ display: "flex", alignItems: "center" }}>
                   <TextInputField
                     label="Offer Amount"
-                    value={formatter.format(currentOffer.salary)}
+                    value={offerAmount}
+                    onChange={(e) => setOfferAmount(e.target.value)}
                     type="text"
-                    disabled={editField}
+                    disabled={!editField}
                     width={130}
                   />
-                  {!editField ? (
+                  {editField ? (
                     <SmallTickIcon
-                      onClick={() => setEditField((prevState) => !prevState)}
+                      onClick={onEditFinished}
                       cursor="pointer"
                       marginLeft={10}
                     />

@@ -32,7 +32,6 @@ const Login = ({ setLoginType }) => {
           <Button
             size="large"
             color="black"
-            appearance="none"
             backgroundColor="papayawhip"
             onClick={() => pickLogin("employee")}
             marginBottom={50}
@@ -43,7 +42,6 @@ const Login = ({ setLoginType }) => {
           <Button
             size="large"
             color="black"
-            appearance="none"
             backgroundColor="papayawhip"
             onClick={() => pickLogin("hr")}
             width={200}
