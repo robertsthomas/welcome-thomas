@@ -1,6 +1,6 @@
 # Welcome - Lets get started
 
-This project shows an example of how I feel Welcomes offer feature would function. Of course its propbrably very different than what it really is or will be! 🍍
+This project shows an example of how I feel Welcomes offer feature would function. Of course its most likely very different than what it really is or will be! 🍍
 
 ### What?
 I built a frontend version of Welcomes new "Create an Offer" feature (Exercise A). This feature has two variations, an Employee/New Employee section and and HR section.
